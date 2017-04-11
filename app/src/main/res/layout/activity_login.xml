@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,123 +7,309 @@
     android:orientation="vertical"
     tools:context=".login.activity.LoginActivity">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="20dp"
-            android:src="@drawable/robot"/>
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView_1"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:paddingBottom="10dp"
+        android:src="@drawable/robot"/>
 
     <LinearLayout
         android:id="@+id/linearLayout_1"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/relativeLayout_1"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp">
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
-        <TextView
-            android:id="@+id/textView_1"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Robot_1"
-            android:textSize="20dp"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textView_2"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Robot_2"
-            android:textSize="20dp"/>
+            <RadioButton
+                android:id="@+id/radioButton_DirectConnect"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_leftcorners_bg"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="直联模式"
+                android:textSize="20dp"/>
 
-        <TextView
-            android:id="@+id/textView_3"
-            android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Robot_3"
-            android:textSize="20dp"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:background="@color/white_view_bg"/>
+
+            <RadioButton
+                android:id="@+id/radioButton_LANConnect"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@color/gray_radio_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="局域网模式"
+                android:textSize="20dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:background="@color/white_view_bg"/>
+
+            <RadioButton
+                android:id="@+id/checkbox_RemoteConnect"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_rightcorners_bg"
+                android:button="@null"
+                android:gravity="center"
+                android:text="远程模式"
+                android:textSize="20dp"/>
+        </RadioGroup>
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout_2"
+        android:id="@+id/radioButton_3"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout_1">
+        android:layout_height="150dp"
+        android:layout_below="@+id/linearLayout_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:id="@+id/linearLayout_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView_4"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="TextView4"
-                android:textSize="20dp"/>
+            <LinearLayout
+                android:id="@+id/linearLayout_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp">
 
-            <EditText
-                android:id="@+id/editText_1"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ip"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/editText_1"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Please Input IP"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="#808080"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/icon_check"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/person"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/textView_2"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Please Input Robot Number"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="#808080"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/icon_check"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_5"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:hint="Edittext1"/>
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/passwd"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/editText_3"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="Please Input Password"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="#808080"/>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/icon_check"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout_3"
+            android:id="@+id/linearLayout_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout_2"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone">
 
-            <TextView
-                android:id="@+id/textView_5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="TextView5"
-                android:textSize="20dp"/>
+                android:background="@drawable/person"
+                android:gravity="center"/>
 
             <EditText
-                android:id="@+id/editText_2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3"
-                android:hint="Edittext2"/>
+                android:id="@+id/editText_4"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="2"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="Please Input Username"/>
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="#808080"/>
 
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/icon_check"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/linearLayout_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/ip"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/editText_5"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="2"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="Please Input IP Number"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="#808080"/>
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/icon_check"/>
+        </LinearLayout>
     </RelativeLayout>
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout_2"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relativeLayout_1"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/loginbutton_bg"
         android:text="Login"/>
 
-</RelativeLayout>
+</LinearLayout>
