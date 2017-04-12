@@ -7,4 +7,6 @@ import com.anzer.robotphone.base.BaseView;
  */
 
 public interface LoginView  extends BaseView {
+
+
 }

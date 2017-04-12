@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">RobotPhone</string>
 
+    <string name="contentDescription">null</string>
+
+    <string name="btn_login">Login</string>
+
+    <string name="connect_direct">直联模式</string>
+    <string name="connect_LAN">局域网模式</string>
+    <string name="connect_remote">远程模式</string>
+
+    <string name="hint_ip">Please Input IP</string>
+    <string name="hint_username">Please Input Username</string>
+    <string name="hint_pwd">Please Input Password</string>
+
 
 </resources>
