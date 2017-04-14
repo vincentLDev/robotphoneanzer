@@ -11,11 +11,11 @@
         android:id="@+id/imageView_Robot"
         android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="@dimen/layout_marginBottom"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/layout_marginBottom"
         android:contentDescription="@string/contentDescription"
-        android:paddingBottom="@dimen/paddingBottom"
-        android:src="@drawable/icon_robot"/>
+        android:paddingTop="@dimen/paddingBottom"
+        android:src="@mipmap/icon_robot"/>
 
     <LinearLayout
         android:id="@+id/linearLayout_radioBtn"
@@ -25,6 +25,7 @@
         android:layout_centerHorizontal="true">
 
         <RadioGroup
+            android:id="@+id/rgChosePattern"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/layout_marginRight"
@@ -34,15 +35,15 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioBtnDirectConnect"
+                android:id="@+id/rdoDirect"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_rectangle_leftcorners_normal"
+                android:background="@drawable/btn_rectangle_leftcorners_selector"
                 android:button="@null"
                 android:gravity="center"
                 android:text="@string/connect_direct"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/textSize"/>
 
             <View
                 android:layout_width="1dp"
@@ -50,15 +51,15 @@
                 android:background="@color/white_view"/>
 
             <RadioButton
-                android:id="@+id/radioBtn_LANConnect"
+                android:id="@+id/rdoLAN"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/gray_radio"
+                android:background="@drawable/btn_rectangle_selector"
                 android:button="@null"
                 android:gravity="center"
                 android:text="@string/connect_LAN"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/textSize"/>
 
             <View
                 android:layout_width="1dp"
@@ -66,21 +67,20 @@
                 android:background="@color/white_view"/>
 
             <RadioButton
-                android:id="@+id/radioBtn_RemoteConnect"
+                android:id="@+id/rdoRemote"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_rectangle_rightcorners_normal"
+                android:background="@drawable/btn_rectangle_rightcorners_selector"
                 android:button="@null"
-                android:checked="true"
                 android:gravity="center"
                 android:text="@string/connect_remote"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/textSize"/>
         </RadioGroup>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout_1"
+    <FrameLayout
+        android:id="@+id/frameLayout_logPattern"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@+id/linearLayout_radioBtn"
@@ -96,19 +96,19 @@
             android:layout_marginLeft="@dimen/layout_marginLeft"
             android:layout_marginRight="@dimen/layout_marginRight"
             android:layout_marginStart="@dimen/layout_marginLeft"
-            android:visibility="gone">
+            >
 
             <ImageView
-                android:id="@+id/imageView_Ip"
+                android:id="@+id/ivIp"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/icon_ip"
+                android:background="@mipmap/icon_ip"
                 android:contentDescription="@string/contentDescription"
                 android:gravity="center"/>
 
             <EditText
-                android:id="@+id/editTextIpDirectConnect"
+                android:id="@+id/etIpDirect"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
@@ -133,7 +133,7 @@
                 android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginRight="@dimen/layout_marginRight"
                 android:layout_weight="1"
-                android:background="@drawable/icon_check"
+                android:background="@mipmap/icon_check"
                 android:contentDescription="@string/contentDescription"/>
         </LinearLayout>
 
@@ -145,18 +145,18 @@
             android:layout_marginLeft="@dimen/layout_marginLeft"
             android:layout_marginRight="@dimen/layout_marginRight"
             android:layout_marginStart="@dimen/layout_marginLeft"
-            android:visibility="gone">
+            >
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/icon_person"
+                android:background="@mipmap/icon_person"
                 android:contentDescription="@string/contentDescription"
                 android:gravity="center"/>
 
             <EditText
-                android:id="@+id/editTextUsernameLANConnect"
+                android:id="@+id/etUserLAN"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
@@ -182,7 +182,7 @@
                 android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginRight="@dimen/layout_marginRight"
                 android:layout_weight="1"
-                android:background="@drawable/icon_check"
+                android:background="@mipmap/icon_check"
                 android:contentDescription="@string/contentDescription"/>
         </LinearLayout>
 
@@ -197,7 +197,6 @@
                 android:id="@+id/linearLayout_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginRight="@dimen/layout_marginRight">
 
@@ -207,12 +206,12 @@
                     android:layout_marginLeft="@dimen/layout_marginLeft"
                     android:layout_marginStart="@dimen/layout_marginLeft"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_ip"
+                    android:background="@mipmap/icon_ip"
                     android:contentDescription="@string/contentDescription"
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/editTextIpRemoteConnect"
+                    android:id="@+id/etIpRemote"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="@dimen/layout_marginLeft"
@@ -237,7 +236,7 @@
                     android:layout_marginEnd="@dimen/layout_marginRight"
                     android:layout_marginRight="@dimen/layout_marginRight"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_check"
+                    android:background="@mipmap/icon_check"
                     android:contentDescription="@string/contentDescription"/>
             </LinearLayout>
 
@@ -245,7 +244,6 @@
                 android:id="@+id/linearLayout_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
                 android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
                 android:layout_marginRight="@dimen/layout_marginRight"
@@ -255,12 +253,12 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_person"
+                    android:background="@mipmap/icon_person"
                     android:contentDescription="@string/contentDescription"
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/editTextUsernameRemoteConnect"
+                    android:id="@+id/etUserRemote"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="@dimen/layout_marginLeft"
@@ -285,7 +283,7 @@
                     android:layout_marginEnd="@dimen/layout_marginRight"
                     android:layout_marginRight="@dimen/layout_marginRight"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_check"
+                    android:background="@mipmap/icon_check"
                     android:contentDescription="@string/contentDescription"/>
             </LinearLayout>
 
@@ -293,7 +291,6 @@
                 android:id="@+id/linearLayout_7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
                 android:layout_marginRight="@dimen/layout_marginLeft">
 
@@ -301,12 +298,12 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_pwd"
+                    android:background="@mipmap/icon_pwd"
                     android:contentDescription="@string/contentDescription"
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/editTextPwdRemoteConnect"
+                    android:id="@+id/etPwdRemote"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="@dimen/layout_marginLeft"
@@ -332,20 +329,48 @@
                     android:layout_marginEnd="@dimen/layout_marginRight"
                     android:layout_marginRight="@dimen/layout_marginRight"
                     android:layout_weight="1"
-                    android:background="@drawable/icon_check"
+                    android:background="@mipmap/icon_check"
                     android:contentDescription="@string/contentDescription"/>
             </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
+    </FrameLayout>
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="300dp"
+
+    <FrameLayout
+        android:id="@+id/frameLayout_logBtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relativeLayout_1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/layout_marginTop"
-        android:background="@drawable/btn_rectangle_login_fourcorners_normal"
-        android:text="@string/btn_login"/>
+        android:layout_below="@+id/frameLayout_logPattern"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/layout_marginTop">
+
+        <Button
+            android:id="@+id/btn_login_Direct"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+            android:text="@string/btn_login_Direct"/>
+
+        <Button
+            android:id="@+id/btn_login_LAN"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+            android:text="@string/btn_login_LAN"/>
+
+        <Button
+            android:id="@+id/btn_login_Remote"
+            android:layout_width="300dp"
+            android:textSize="@dimen/textSize"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+            android:text="@string/btn_login_Remote"/>
+    </FrameLayout>
+
 
 </RelativeLayout>

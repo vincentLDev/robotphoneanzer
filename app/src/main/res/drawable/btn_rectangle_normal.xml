@@ -4,8 +4,4 @@
     <solid android:color="@color/gray_radio"/>
 
 
-    <corners
-        android:radius="@dimen/radius"
-        />
-
 </shape>

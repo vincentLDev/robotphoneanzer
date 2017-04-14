@@ -3,7 +3,9 @@
 
     <string name="contentDescription">null</string>
 
-    <string name="btn_login">Login</string>
+    <string name="btn_login_Direct">LoginDirect</string>
+    <string name="btn_login_LAN">LoginLAN</string>
+    <string name="btn_login_Remote">LoginRemote</string>
 
     <string name="connect_direct">直联模式</string>
     <string name="connect_LAN">局域网模式</string>

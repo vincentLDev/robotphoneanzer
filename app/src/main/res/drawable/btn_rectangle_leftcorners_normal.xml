@@ -8,8 +8,8 @@
 
     <!--圆角的半径-->
     <corners
-        android:bottomLeftRadius="10dp"
-        android:topLeftRadius="10dp"
+        android:bottomLeftRadius="@dimen/bottomLeftRadius"
+        android:topLeftRadius="@dimen/topLeftRadius"
         />
 
 
