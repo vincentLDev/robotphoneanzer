@@ -82,8 +82,6 @@ public class LoginActivity extends BaseActivity
         mLoginPresenter = new LoginPresenterImpl(this);
 
         mRbtnDirect.setChecked(true);
-
-        mBtnLoginDirect.setEnabled(true);
     }
 
     @Override
@@ -95,6 +93,9 @@ public class LoginActivity extends BaseActivity
                 mRbtnDirect.setChecked(true);
                 mRbtnLAN.setChecked(false);
                 mRbtnRemote.setChecked(false);
+
+
+
                 break;
             case R.id.rdoLAN:
 
@@ -119,31 +120,41 @@ public class LoginActivity extends BaseActivity
         switch (view.getId()) {
             case R.id.btn_login_Direct:
 
-                mBtnLoginDirect.setEnabled(true);
-                mBtnLoginLAN.setEnabled(false);
-                mBtnLoginRemote.setEnabled(false);
-
 //                mLoginPresenter.login();
 
 //                if (rdoDirect.isChecked() || rdoRemote.isChecked() || rdoLAN.isChecked()) {
 //                }
+
+//                String mEdtIpDirect = mEdtIpDirect.getText().toString().trim();
+//                String mEdtUserLAN = etUserLAN.getText().toString().trim();
+//                String ipRemote = etIpRemote.getText().toString().trim();
+//
+//                String userRemote = etUserRemote.getText().toString().trim();
+//                String pwdRemote = etPwdRemote.getText().toString().trim();
+//
+//
+//                mLoginPresenter.login(ipDirect, userLAN, ipRemote);
+
+
+
+
 
                 Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.btn_login_LAN:
 
-                mBtnLoginLAN.setEnabled(true);
-                mBtnLoginDirect.setEnabled(false);
-                mBtnLoginRemote.setEnabled(false);
+//                mBtnLoginLAN.setEnabled(true);
+//                mBtnLoginDirect.setEnabled(false);
+//                mBtnLoginRemote.setEnabled(false);
 
                 Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_login_Remote:
 
-                mBtnLoginRemote.setEnabled(true);
-                mBtnLoginDirect.setEnabled(false);
-                mBtnLoginLAN.setEnabled(false);
+//                mBtnLoginRemote.setEnabled(true);
+//                mBtnLoginDirect.setEnabled(false);
+//                mBtnLoginLAN.setEnabled(false);
 
                 Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
                 break;
@@ -158,6 +169,7 @@ public class LoginActivity extends BaseActivity
 
         if (result) {
             Toast.makeText(this, "Login Success.", Toast.LENGTH_SHORT).show();
+
             startActivity(new Intent(this, MainActivity.class));
 
         } else {

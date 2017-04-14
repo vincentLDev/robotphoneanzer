@@ -82,108 +82,140 @@
     <FrameLayout
         android:id="@+id/frameLayout_logPattern"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
         android:layout_below="@+id/linearLayout_radioBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/layout_marginTop">
 
         <LinearLayout
-            android:id="@+id/linearLayoutDirectConnect"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginEnd="@dimen/layout_marginRight"
-            android:layout_marginLeft="@dimen/layout_marginLeft"
-            android:layout_marginRight="@dimen/layout_marginRight"
-            android:layout_marginStart="@dimen/layout_marginLeft"
-            >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivIp"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@mipmap/icon_ip"
-                android:contentDescription="@string/contentDescription"
-                android:gravity="center"/>
-
-            <EditText
-                android:id="@+id/etIpDirect"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+            <LinearLayout
+                android:id="@+id/linearLayoutDirectConnect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
-                android:layout_marginStart="@dimen/layout_marginRight"
-                android:layout_weight="2"
-                android:background="@null"
-                android:gravity="center_vertical"
-                android:hint="@string/hint_ip"/>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginRight="@dimen/layout_marginRight"
-                android:background="@color/gray_radio"/>
+                android:layout_marginStart="@dimen/layout_marginLeft">
 
-            <ImageView
-                android:layout_width="10dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:layout_weight="1"
-                android:background="@mipmap/icon_check"
-                android:contentDescription="@string/contentDescription"/>
+                <ImageView
+                    android:id="@+id/ivIp"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_ip"
+                    android:contentDescription="@string/contentDescription"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/etIpDirect"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="@dimen/layout_marginLeft"
+                    android:layout_marginStart="@dimen/layout_marginRight"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_ip"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_marginRight"
+                    android:layout_marginRight="@dimen/layout_marginRight"
+                    android:background="@color/gray_radio"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/layout_marginRight"
+                    android:layout_marginRight="@dimen/layout_marginRight"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/contentDescription"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login_Direct"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/layout_marginTop"
+                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+                android:text="@string/btn_login_Remote"
+                android:textSize="@dimen/textSize"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout_LAN"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/layout_marginRight"
-            android:layout_marginLeft="@dimen/layout_marginLeft"
-            android:layout_marginRight="@dimen/layout_marginRight"
-            android:layout_marginStart="@dimen/layout_marginLeft"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
             >
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@mipmap/icon_person"
-                android:contentDescription="@string/contentDescription"
-                android:gravity="center"/>
-
-            <EditText
-                android:id="@+id/etUserLAN"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+            <LinearLayout
+                android:id="@+id/linearLayout_LAN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/layout_marginRight"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
+                android:layout_marginRight="@dimen/layout_marginRight"
                 android:layout_marginStart="@dimen/layout_marginLeft"
-                android:layout_weight="2"
-                android:background="@null"
-                android:gravity="center_vertical"
-                android:hint="@string/hint_username"/>
+                >
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:background="@color/gray_radio"/>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_person"
+                    android:contentDescription="@string/contentDescription"
+                    android:gravity="center"/>
 
-            <ImageView
-                android:id="@+id/imageView_Check"
-                android:layout_width="10dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:layout_weight="1"
-                android:background="@mipmap/icon_check"
-                android:contentDescription="@string/contentDescription"/>
+                <EditText
+                    android:id="@+id/etUserLAN"
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="@dimen/layout_marginLeft"
+                    android:layout_marginStart="@dimen/layout_marginLeft"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_username"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/layout_marginRight"
+                    android:layout_marginRight="@dimen/layout_marginRight"
+                    android:background="@color/gray_radio"/>
+
+                <ImageView
+                    android:id="@+id/imageView_Check"
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="@dimen/layout_marginRight"
+                    android:layout_marginRight="@dimen/layout_marginRight"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/contentDescription"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login_LAN"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/layout_marginTop"
+                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+                android:text="@string/btn_login_Direct"
+                android:textSize="@dimen/textSize"/>
         </LinearLayout>
 
         <LinearLayout
@@ -191,7 +223,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:id="@+id/linearLayout_5"
@@ -290,7 +324,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout_7"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/layout_marginLeft"
                 android:layout_marginRight="@dimen/layout_marginLeft">
 
@@ -316,7 +350,6 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="30dp"
-                    android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/layout_marginRight"
                     android:layout_marginRight="@dimen/layout_marginRight"
                     android:background="@color/gray_radio"/>
@@ -325,52 +358,24 @@
                     android:id="@+id/imageView2"
                     android:layout_width="10dp"
                     android:layout_height="40dp"
-                    android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/layout_marginRight"
                     android:layout_marginRight="@dimen/layout_marginRight"
                     android:layout_weight="1"
                     android:background="@mipmap/icon_check"
                     android:contentDescription="@string/contentDescription"/>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login_Remote"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/layout_marginTop"
+                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
+                android:text="@string/btn_login_LAN"
+                android:textSize="@dimen/textSize"/>
+
         </LinearLayout>
+
     </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/frameLayout_logBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout_logPattern"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/layout_marginTop">
-
-        <Button
-            android:id="@+id/btn_login_Direct"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-            android:text="@string/btn_login_Direct"/>
-
-        <Button
-            android:id="@+id/btn_login_LAN"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/textSize"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-            android:text="@string/btn_login_LAN"/>
-
-        <Button
-            android:id="@+id/btn_login_Remote"
-            android:layout_width="300dp"
-            android:textSize="@dimen/textSize"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-            android:text="@string/btn_login_Remote"/>
-    </FrameLayout>
-
-
 </RelativeLayout>
