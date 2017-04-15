@@ -10,12 +10,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.anzer.robotphone.MainActivity;
 import com.anzer.robotphone.R;
 import com.anzer.robotphone.base.BaseActivity;
 import com.anzer.robotphone.login.presenter.LoginPresenter;
 import com.anzer.robotphone.login.presenterimpl.LoginPresenterImpl;
 import com.anzer.robotphone.login.view.LoginView;
+import com.anzer.robotphone.service.CommunicateService;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +27,7 @@ import butterknife.OnClick;
  */
 
 public class LoginActivity extends BaseActivity implements LoginView {
+    private static final String TAG = "LoginActivity";
 
     private RadioGroup mRadioGroup;
 
@@ -63,10 +64,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
         setContentView(R.layout.activity_login);
 
         initView();
+
     }
 
     private void initView() {
-
         // find view
         mRadioGroup = (RadioGroup) findViewById(R.id.rgChosePattern);
         ButterKnife.bind(this);
@@ -108,8 +109,8 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void onbtn_login_Direct() {
 
         Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(this, MainActivity.class));
 
+        CommunicateService.getInstance().showTips();
     }
 
     @OnClick(R.id.btn_login_LAN)
@@ -122,6 +123,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     public void onbtn_login_Remote() {
 
         Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -131,7 +133,6 @@ public class LoginActivity extends BaseActivity implements LoginView {
         if (result) {
             Toast.makeText(this, "Login Success.", Toast.LENGTH_SHORT).show();
 
-            startActivity(new Intent(this, MainActivity.class));
 
         } else {
             Toast.makeText(this, "Login Failed, code = " + code, Toast.LENGTH_SHORT).show();

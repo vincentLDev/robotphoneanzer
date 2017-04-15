@@ -21,7 +21,7 @@
         android:id="@+id/linearLayout_radiobutton"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/imageView_Robot"
+        android:layout_below="@+id/image_robot"
         android:layout_centerHorizontal="true">
 
         <RadioGroup
@@ -83,7 +83,7 @@
         android:id="@+id/frameLayout_logPattern"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/linearLayout_radioBtn"
+        android:layout_below="@+id/linearLayout_radiobutton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/layout_marginTop">
 
