@@ -1,14 +1,11 @@
 package com.anzer.robotphone.login.activity;
 
 import android.content.Intent;
-import android.gesture.Prediction;
 import android.os.Bundle;
-import android.renderscript.Int2;
-import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -22,13 +19,16 @@ import com.anzer.robotphone.login.view.LoginView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnCheckedChanged;
+import butterknife.OnClick;
 
 /**
  * Created by Lenovo on 17/4/10.
  */
 
-public class LoginActivity extends BaseActivity
-        implements RadioGroup.OnCheckedChangeListener, View.OnClickListener, LoginView {
+public class LoginActivity extends BaseActivity implements LoginView {
+
+    private RadioGroup mRadioGroup;
 
     @BindView(R.id.etIpDirect)
     EditText mEdtIpDirect;
@@ -48,12 +48,12 @@ public class LoginActivity extends BaseActivity
     @BindView(R.id.rdoRemote)
     RadioButton mRbtnRemote;
 
-    @BindView(R.id.btn_login_Direct)
-    Button mBtnLoginDirect;
+    @BindView(R.id.linearLayoutDirect)
+    LinearLayout mLinearLayoutDirect;
     @BindView(R.id.btn_login_LAN)
-    Button mBtnLoginLAN;
-    @BindView(R.id.btn_login_Remote)
-    Button mBtnLoginRemote;
+    LinearLayout mLinearLayoutLAN;
+    @BindView(R.id.linearLayout_Remote)
+    LinearLayout mLinearLayoutRemote;
 
     LoginPresenter mLoginPresenter;
 
@@ -68,104 +68,65 @@ public class LoginActivity extends BaseActivity
     private void initView() {
 
         // find view
-        RadioGroup mRadioGroup = (RadioGroup) findViewById(R.id.rgChosePattern);
+        mRadioGroup = (RadioGroup) findViewById(R.id.rgChosePattern);
         ButterKnife.bind(this);
-
-        // set listener
-        mRadioGroup.setOnCheckedChangeListener(this);
-
-        mBtnLoginDirect.setOnClickListener(this);
-        mBtnLoginLAN.setOnClickListener(this);
-        mBtnLoginRemote.setOnClickListener(this);
 
         // init
         mLoginPresenter = new LoginPresenterImpl(this);
 
-        mRbtnDirect.setChecked(true);
+        // 填充、移除布局  mLinearLayoutDire、mLinearLayoutLAN、mLinearLayoutRemote
+        showLayout(true, false, false);
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-
-        switch (checkedId) {
-            case R.id.rdoDirect:
-
-                mRbtnDirect.setChecked(true);
-                mRbtnLAN.setChecked(false);
-                mRbtnRemote.setChecked(false);
-
-
-
-                break;
-            case R.id.rdoLAN:
-
-                mRbtnDirect.setChecked(false);
-                mRbtnLAN.setChecked(true);
-                mRbtnRemote.setChecked(false);
-                break;
-            case R.id.rdoRemote:
-
-                mRbtnDirect.setChecked(false);
-                mRbtnLAN.setChecked(false);
-                mRbtnRemote.setChecked(true);
-                break;
-            default:
-                break;
-        }
+    @OnCheckedChanged(R.id.rdoDirect)
+    public void onRdoDirect() {
+        showLayout(true, false, false);
     }
 
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.btn_login_Direct:
-
-//                mLoginPresenter.login();
-
-//                if (rdoDirect.isChecked() || rdoRemote.isChecked() || rdoLAN.isChecked()) {
-//                }
-
-//                String mEdtIpDirect = mEdtIpDirect.getText().toString().trim();
-//                String mEdtUserLAN = etUserLAN.getText().toString().trim();
-//                String ipRemote = etIpRemote.getText().toString().trim();
-//
-//                String userRemote = etUserRemote.getText().toString().trim();
-//                String pwdRemote = etPwdRemote.getText().toString().trim();
-//
-//
-//                mLoginPresenter.login(ipDirect, userLAN, ipRemote);
-
-
-
-
-
-                Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
-
-                break;
-            case R.id.btn_login_LAN:
-
-//                mBtnLoginLAN.setEnabled(true);
-//                mBtnLoginDirect.setEnabled(false);
-//                mBtnLoginRemote.setEnabled(false);
-
-                Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.btn_login_Remote:
-
-//                mBtnLoginRemote.setEnabled(true);
-//                mBtnLoginDirect.setEnabled(false);
-//                mBtnLoginLAN.setEnabled(false);
-
-                Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
+    @OnCheckedChanged(R.id.rdoLAN)
+    public void onRdoLAN() {
+        showLayout(false, true, false);
     }
+
+    @OnCheckedChanged(R.id.rdoRemote)
+    public void onRdoRemote() {
+        showLayout(false, false, true);
+    }
+
+    private void showLayout(boolean direct, boolean lan, boolean remote) {
+
+        mRbtnDirect.setChecked(direct);
+        mRbtnLAN.setChecked(lan);
+        mRbtnRemote.setChecked(remote);
+
+        mLinearLayoutDirect.setVisibility(direct ? View.VISIBLE : View.GONE);
+        mLinearLayoutLAN.setVisibility(lan ? View.VISIBLE : View.GONE);
+        mLinearLayoutRemote.setVisibility(remote ? View.VISIBLE : View.GONE);
+    }
+
+    @OnClick(R.id.btn_login_Direct)
+    public void onbtn_login_Direct() {
+
+        Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, MainActivity.class));
+
+    }
+
+    @OnClick(R.id.btn_login_LAN)
+    public void onbtn_login_LAN() {
+
+        Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.btn_login_Remote)
+    public void onbtn_login_Remote() {
+
+        Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
+    }
+
 
     @Override
     public void onLoginResult(Boolean result, int code) {
-
 
         if (result) {
             Toast.makeText(this, "Login Success.", Toast.LENGTH_SHORT).show();

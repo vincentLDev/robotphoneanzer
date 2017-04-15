@@ -8,7 +8,7 @@
     tools:context=".login.activity.LoginActivity">
 
     <ImageView
-        android:id="@+id/imageView_Robot"
+        android:id="@+id/image_robot"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
@@ -18,7 +18,7 @@
         android:src="@mipmap/icon_robot"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout_radioBtn"
+        android:id="@+id/linearLayout_radiobutton"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/imageView_Robot"
@@ -88,12 +88,12 @@
         android:layout_marginTop="@dimen/layout_marginTop">
 
         <LinearLayout
+            android:id="@+id/linearLayoutDirect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/linearLayoutDirectConnect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -153,14 +153,13 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btn_login_LAN"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"
-            >
+            android:visibility="gone">
 
             <LinearLayout
-                android:id="@+id/linearLayout_LAN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/layout_marginRight"
@@ -208,7 +207,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_login_LAN"
+                android:id="@+id/mBtnloginLAN"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
