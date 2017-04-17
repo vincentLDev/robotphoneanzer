@@ -64,11 +64,10 @@ public class LoginActivity extends BaseActivity implements LoginView {
         setContentView(R.layout.activity_login);
 
         initView();
-
     }
 
     private void initView() {
-        // find view
+        // bind
         mRadioGroup = (RadioGroup) findViewById(R.id.rgChosePattern);
         ButterKnife.bind(this);
 
@@ -105,24 +104,26 @@ public class LoginActivity extends BaseActivity implements LoginView {
         mLinearLayoutRemote.setVisibility(remote ? View.VISIBLE : View.GONE);
     }
 
-    @OnClick(R.id.btn_login_Direct)
-    public void onbtn_login_Direct() {
+    @OnClick(R.id.mBtnLoginDirect)
+    public void onBtnLoginDirect() {
 
         Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
 
         CommunicateService.getInstance().showTips();
     }
 
-    @OnClick(R.id.btn_login_LAN)
-    public void onbtn_login_LAN() {
+    @OnClick(R.id.mBtnLoginLAN)
+    public void onBtnLoginLAN() {
 
-        Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "222", Toast.LENGTH_SHORT).show(); // 无法显示
     }
 
-    @OnClick(R.id.btn_login_Remote)
-    public void onbtn_login_Remote() {
+    @OnClick(R.id.mBtnLoginRemote)
+    public void onBtnLoginRemote() {
 
         Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
+
+        CommunicateService.getInstance().createWebSocket();
 
     }
 
@@ -139,6 +140,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         }
 
     }
+
 
     @Override
     protected void onDestroy() {

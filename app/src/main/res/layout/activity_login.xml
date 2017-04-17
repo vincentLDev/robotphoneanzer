@@ -142,7 +142,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_login_Direct"
+                android:id="@+id/mBtnLoginDirect"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -207,7 +207,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/mBtnloginLAN"
+                android:id="@+id/mBtnLoginLAN"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -365,7 +365,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_login_Remote"
+                android:id="@+id/mBtnLoginRemote"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
