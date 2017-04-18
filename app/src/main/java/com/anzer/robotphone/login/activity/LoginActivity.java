@@ -1,8 +1,8 @@
 package com.anzer.robotphone.login.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -12,10 +12,14 @@ import android.widget.Toast;
 
 import com.anzer.robotphone.R;
 import com.anzer.robotphone.base.BaseActivity;
-import com.anzer.robotphone.login.presenter.LoginPresenter;
+import com.anzer.robotphone.login.presenter.ILoginPresenter;
 import com.anzer.robotphone.login.presenterimpl.LoginPresenterImpl;
-import com.anzer.robotphone.login.view.LoginView;
+import com.anzer.robotphone.login.view.ILoginView;
 import com.anzer.robotphone.service.CommunicateService;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +30,7 @@ import butterknife.OnClick;
  * Created by Lenovo on 17/4/10.
  */
 
-public class LoginActivity extends BaseActivity implements LoginView {
+public class LoginActivity extends BaseActivity implements ILoginView {
     private static final String TAG = "LoginActivity";
 
     private RadioGroup mRadioGroup;
@@ -56,7 +60,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.linearLayout_Remote)
     LinearLayout mLinearLayoutRemote;
 
-    LoginPresenter mLoginPresenter;
+    ILoginPresenter mILoginPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,7 +76,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
         ButterKnife.bind(this);
 
         // init
-        mLoginPresenter = new LoginPresenterImpl(this);
+        mILoginPresenter = new LoginPresenterImpl(this);
 
         // 填充、移除布局  mLinearLayoutDire、mLinearLayoutLAN、mLinearLayoutRemote
         showLayout(true, false, false);
@@ -118,13 +122,28 @@ public class LoginActivity extends BaseActivity implements LoginView {
         Toast.makeText(this, "222", Toast.LENGTH_SHORT).show(); // 无法显示
     }
 
+    private Gson mGson = new Gson();
+
     @OnClick(R.id.mBtnLoginRemote)
     public void onBtnLoginRemote() {
 
         Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
 
-        CommunicateService.getInstance().createWebSocket();
 
+        String name = mEdtUserRemote.getText().toString().trim();
+        String password = mEdtPwdRemote.getText().toString().trim();
+
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password)) {
+            return;
+        }
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("cmd", 0x0001);
+        map.put("sn", hashCode());
+        map.put("user", name);
+        map.put("pass", password);
+        map.put("softType", "android");
+        CommunicateService.getInstance().sendJsonToWebSocket(mGson.toJson(map));
     }
 
 

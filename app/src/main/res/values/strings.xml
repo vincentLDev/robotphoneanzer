@@ -14,6 +14,7 @@
     <string name="hint_ip">Please Input IP</string>
     <string name="hint_username">Please Input Username</string>
     <string name="hint_pwd">Please Input Password</string>
+    <string name="robot_list">Robot List</string>
 
 
 </resources>

@@ -82,7 +82,7 @@
     <FrameLayout
         android:id="@+id/frameLayout_logPattern"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout_radiobutton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/layout_marginTop">
@@ -377,4 +377,7 @@
         </LinearLayout>
 
     </FrameLayout>
+
+
+
 </RelativeLayout>

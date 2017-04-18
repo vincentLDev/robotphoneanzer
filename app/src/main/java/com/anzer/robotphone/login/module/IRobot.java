@@ -4,7 +4,7 @@ package com.anzer.robotphone.login.module;
  * Created by Lenovo on 17/4/14.
  */
 
-public interface User {
+public interface IRobot {
 
     String getIp();
 

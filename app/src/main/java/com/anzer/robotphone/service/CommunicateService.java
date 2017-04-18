@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class CommunicateService extends Service {
         return mCommunicateService;
     }
 
-    public WebSocketClient webSocketClient = null;
+    public WebSocketClient mWebSocketClient = null;
 
 
     @Nullable
@@ -42,62 +43,71 @@ public class CommunicateService extends Service {
         mCommunicateService = this;
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        createWebSocket();
+
+        return super.onStartCommand(intent, flags, startId);
+    }
+
     public void showTips() {
 
         Toast.makeText(getApplicationContext(), "wo wo wo", Toast.LENGTH_SHORT).show();
     }
 
-    public void createWebSocket() {
+    public void sendJsonToWebSocket(String json) {      //  Send Json to WebSocket
+
+        if (mWebSocketClient != null && !TextUtils.isEmpty(json)) {
+            mWebSocketClient.send(json);
+        }
+
+    }
+
+    private void createWebSocket() {
         Log.e(TAG, "ws is connecting... ");
 
-        new Thread(new Runnable() {
+        String reqUri = "ws://192.168.16.166:5560";
 
-            WebSocketClient onWebSocketListener;
+        try {
+            URI uri = new URI(reqUri);
 
-            @Override
-            public void run() {
-                String reqUri = "www.baidu.com";
+            mWebSocketClient = new WebSocketClient(uri) {
 
-                try {
-                    URI uri = new URI(reqUri);
-                    webSocketClient = new WebSocketClient(uri) {
+                @Override
+                public void onOpen(ServerHandshake handshakedata) {
 
-                        @Override
-                        public void onOpen(ServerHandshake handshakedata) {
-                            onWebSocketListener.onOpen(handshakedata);
-                        }
-
-                        @Override
-                        public void onMessage(String message) {
-                            Log.e(TAG, "onMessage: " + message);
-                            onWebSocketListener.onMessage(message);
-                        }
-
-                        @Override
-                        public void onClose(final int code, final String reason, final boolean remote) {
-
-                            Log.e(TAG, "onClose  code" + code + "  reason:" + reason + "  remote:" + remote);
-                            onWebSocketListener.onClose(code, reason, remote);
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-
-                            Log.e(TAG, "onError: " + e.getMessage());
-//                            onWebSocketListener.onError(e);
-                        }
-                    };
-
-                    webSocketClient.connect();
-
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "onOpen");
                 }
 
-            }
-        }).start();
+                @Override
+                public void onMessage(String message) {
+                    Log.e(TAG, "onMessage: " + message);
+                }
+
+                @Override
+                public void onClose(final int code, final String reason, final boolean remote) {
+
+                    Log.e(TAG, "onClose  code" + code + "  reason:" + reason + "  remote:" + remote);
+                }
+
+                @Override
+                public void onError(Exception e) {
+
+                    Log.e(TAG, "onError: " + e.getMessage());
+                }
+            };
+
+            mWebSocketClient.connect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
 
 }
+
+
+

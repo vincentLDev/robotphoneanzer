@@ -4,13 +4,13 @@ package com.anzer.robotphone.login.module;
  * Created by Lenovo on 17/4/14.
  */
 
-public class UserImpl implements User {
+public class RobotImpl implements IRobot {
 
     private String ip;
     private String name;
     private String passwd;
 
-    public UserImpl(String ip, String name, String passwd) {
+    public RobotImpl(String ip, String name, String passwd) {
         this.ip = ip;
         this.name = name;
         this.passwd = passwd;
@@ -30,6 +30,8 @@ public class UserImpl implements User {
     public String getPasswd() {
         return passwd;
     }
+
+
 
     @Override
     public int checkUserValidity(String ip, String name, String password) {

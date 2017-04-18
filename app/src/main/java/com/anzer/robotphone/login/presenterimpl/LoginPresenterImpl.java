@@ -2,24 +2,24 @@ package com.anzer.robotphone.login.presenterimpl;
 
 import android.os.Handler;
 
-import com.anzer.robotphone.login.module.User;
-import com.anzer.robotphone.login.module.UserImpl;
-import com.anzer.robotphone.login.presenter.LoginPresenter;
-import com.anzer.robotphone.login.view.LoginView;
+import com.anzer.robotphone.login.module.IRobot;
+import com.anzer.robotphone.login.module.RobotImpl;
+import com.anzer.robotphone.login.presenter.ILoginPresenter;
+import com.anzer.robotphone.login.view.ILoginView;
 
 /**
  * Created by Lenovo on 17/4/10.
  */
 
-public class LoginPresenterImpl implements LoginPresenter {
+public class LoginPresenterImpl implements ILoginPresenter {
 
-    private LoginView mLoginView;
-    private User mUser;
+    private ILoginView mLoginView;
+    private IRobot mIRobot;
     private Handler mHandler;
 
-    public LoginPresenterImpl(LoginView loginView) {
+    public LoginPresenterImpl(ILoginView loginView) {
         this.mLoginView = loginView;
-        mUser = new UserImpl("WS://192.168.16.153:5560", "robotanzer", "123456");
+        mIRobot = new RobotImpl("ws://192.168.16.153:5560", "robotanzer", "123456");
 
         mHandler = new Handler();
     }
@@ -29,7 +29,7 @@ public class LoginPresenterImpl implements LoginPresenter {
 
         Boolean isLoginSuccess = true;
 
-        final int code = mUser.checkUserValidity(ip, name, passwd);
+        final int code = mIRobot.checkUserValidity(ip, name, passwd);
 
         if (code != 0)
             isLoginSuccess = false;
