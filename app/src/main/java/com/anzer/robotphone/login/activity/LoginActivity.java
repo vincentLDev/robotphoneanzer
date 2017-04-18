@@ -1,5 +1,6 @@
 package com.anzer.robotphone.login.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.anzer.robotphone.MainActivity;
 import com.anzer.robotphone.R;
 import com.anzer.robotphone.base.BaseActivity;
 import com.anzer.robotphone.login.presenter.ILoginPresenter;
@@ -32,6 +34,7 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity implements ILoginView {
     private static final String TAG = "LoginActivity";
+
 
     private RadioGroup mRadioGroup;
 
@@ -68,7 +71,10 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         setContentView(R.layout.activity_login);
 
         initView();
+
+
     }
+
 
     private void initView() {
         // bind
@@ -118,8 +124,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @OnClick(R.id.mBtnLoginLAN)
     public void onBtnLoginLAN() {
-
-        Toast.makeText(this, "222", Toast.LENGTH_SHORT).show(); // 无法显示
+        Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
     }
 
     private Gson mGson = new Gson();
@@ -128,7 +133,6 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     public void onBtnLoginRemote() {
 
         Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
-
 
         String name = mEdtUserRemote.getText().toString().trim();
         String password = mEdtPwdRemote.getText().toString().trim();
@@ -143,7 +147,10 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         map.put("user", name);
         map.put("pass", password);
         map.put("softType", "android");
+
         CommunicateService.getInstance().sendJsonToWebSocket(mGson.toJson(map));
+
+        startActivity(new Intent(this, MainActivity.class));
     }
 
 
