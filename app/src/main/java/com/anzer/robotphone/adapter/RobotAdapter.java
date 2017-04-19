@@ -16,50 +16,69 @@ import java.util.List;
  * Created by Lenovo on 17/4/18.
  */
 
-public class RobotAdapter extends RecyclerView.Adapter<RobotAdapter.ViewHolder> {
+public class RobotAdapter extends RecyclerView.Adapter<RobotAdapter.ViewHolder> {   // 实现onCreateViewHolder()/onBindViewHolder()/getItemCount
 
-    private List<RobotBean> mRobotBeanList;
+    private List<RobotBean> data;                                   // 数据
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    /**
+     * @param data
+     */
+    public RobotAdapter(List<RobotBean> data) {                   // 把数据源data 传入到集合中
+        this.data = data;                                         // 赋值给全局变量, 后续的操作都在这个数据源的基础上进行
+    }
 
-        ImageView mRobotImage;
-        TextView mRobotText;
+    /**
+     * 定义内部类    ViewHolder
+     * 并 持有每个Item的所有界面元素，此处是mTextView/mImageView
+     */
+    public static class ViewHolder extends RecyclerView.ViewHolder {    // 定义持有者的类，内部类ViewHolder，一般只有属性没有方法
 
-        ViewHolder(View itemView) {
+        ImageView mImageView;
+        TextView mTextView;
+
+        ViewHolder(View itemView) {                             // 构造函数ViewHolder，传入一个View参数 itemView
+                                                                // 该参数通常是 RecyclerView子项的最外层布局，即Items
             super(itemView);
 
-            mRobotImage = (ImageView) itemView.findViewById(R.id.img_robot);
-            mRobotText = (TextView) itemView.findViewById(R.id.tv_robot);
+            //  把每一个item的子View控件对象如ImageView、TextView等，findViewById实例化出来并保存到ViewHolder对象中
+            mImageView = (ImageView) itemView.findViewById(R.id.img_robot);
+            mTextView = (TextView) itemView.findViewById(R.id.tv_robot);
         }
     }
 
-    public RobotAdapter(List<RobotBean> robotBeanList) {
-        this.mRobotBeanList = robotBeanList;
-    }
-
-
+    /**
+     * @param parent
+     * @param viewType
+     * @return 创建新的View，被LayoutManager调用
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.robot_item, parent, false);
-        final ViewHolder mViewHolder = new ViewHolder(mView);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.robot_item, parent, false); // 获得LayoutInflater实例(LayoutInflater.from)、加载布局robot_item(.inflate)
+        final ViewHolder mViewHolder = new ViewHolder(mView);   // 把布局fruit_item 加载进mViewHolder中,   作用就是一个临时的储存器，把每次返回的View存起来，可以下次再用，提高效率
 
-        return mViewHolder;
+        return mViewHolder;                                     // 将ViewHolder的 实例mViewHolder返回
     }
 
+    /**
+     * @param mViewHolder 将数据和界面进行绑定
+     * @param position
+     */
     @Override
     public void onBindViewHolder(ViewHolder mViewHolder, int position) {
+        RobotBean robot = data.get(position);                   // 通过position参数得到当前robot的实例
 
-        RobotBean mRobotBean = mRobotBeanList.get(position);
-
-        mViewHolder.mRobotImage.setImageResource(Integer.parseInt(mRobotBean.getPasswd()));    // imageId
-        mViewHolder.mRobotText.setText(mRobotBean.getName());
+        mViewHolder.mImageView.setImageResource(robot.getId()); // 将robot实例的item数据，设置到ViewHolder中
+        mViewHolder.mTextView.setText(robot.getName());
     }
 
+    /**
+     * @return 获取数据的数量
+     */
     @Override
     public int getItemCount() {
 
-        return mRobotBeanList.size();
+        return data.size();                                     // 告诉RecyclerView一共有多少子项，返回数据源长度
     }
 
 

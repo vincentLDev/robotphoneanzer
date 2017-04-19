@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 
 import com.anzer.robotphone.adapter.RobotAdapter;
 import com.anzer.robotphone.bean.RobotBean;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<RobotBean> mRobotBeanList = new ArrayList<>();
+    private List<RobotBean> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,42 +23,77 @@ public class MainActivity extends AppCompatActivity {
 
         initRobots();
 
+        // 在MainActivity中 获取RecyclerView的实例 mRecyclerView
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);   // this
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        RobotAdapter mRobotAdapter = new RobotAdapter(mRobotBeanList);
-        mRecyclerView.setAdapter(mRobotAdapter);
+        //创建默认的线性LayoutManager
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);   // 创建LinearLayoutManager的对象 mLinearLayoutManager
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);   // 指定RecyclerView的布局：线性布局LinearLayoutManager
 
+        //创建并设置Adapter
+        RobotAdapter mRobotAdapter = new RobotAdapter(data);    // 创建RobotAdapter的实例，并将RobotBean的数据data  传入到FruitAdapter的构造函数中
+        mRecyclerView.setAdapter(mRobotAdapter);                // setAdapter(),完成适配器设置，建立RecyclerView和数据RobotBean之间的关联
     }
 
 
-    private void initRobots() {
+    private void initRobots() { // Items 初始化
         for (int i = 0; i < 2; i++) {
 
-            RobotBean mRobot1 = new RobotBean("Robot1", R.mipmap.ic_robot1 );
-            mRobotBeanList.add(mRobot1);
+            RobotBean robotBean1 = new RobotBean();
+            robotBean1.setName("Robot1");
+            robotBean1.getName();
+            robotBean1.setId(R.mipmap.ic_robot1);
+            robotBean1.getId();
+            data.add(robotBean1);
 
-            RobotBean mRobot2 = new RobotBean("Robot2", R.mipmap.ic_robot2 + "", "r2");
-            mRobotBeanList.add(mRobot2);
+            RobotBean robotBean2 = new RobotBean();
+            robotBean2.setName("Robot2");
+            robotBean2.getName();
+            robotBean2.setId(R.mipmap.ic_robot2);
+            robotBean2.getId();
+            data.add(robotBean2);
 
-            RobotBean mRobot3 = new RobotBean("Robot3", R.mipmap.ic_robot3 + "", "r3");
-            mRobotBeanList.add(mRobot3);
+            RobotBean robotBean3 = new RobotBean();
+            robotBean3.setName("Robot3");
+            robotBean3.getName();
+            robotBean3.setId(R.mipmap.ic_robot3);
+            robotBean3.getId();
+            data.add(robotBean3);
 
-            RobotBean mRobot4 = new RobotBean("Robot4", R.mipmap.ic_robot4 + "", "r4");
-            mRobotBeanList.add(mRobot4);
+            RobotBean robotBean4 = new RobotBean();
+            robotBean4.setName("Robot4");
+            robotBean4.getName();
+            robotBean4.setId(R.mipmap.ic_robot4);
+            robotBean4.getId();
+            data.add(robotBean4);
 
-            RobotBean mRobot5 = new RobotBean("Robot5", R.mipmap.ic_robot5 + "", "r5");
-            mRobotBeanList.add(mRobot5);
+            RobotBean robotBean5 = new RobotBean();
+            robotBean5.setName("Robot5");
+            robotBean5.getName();
+            robotBean5.setId(R.mipmap.ic_robot5);
+            robotBean5.getId();
+            data.add(robotBean5);
 
-            RobotBean mRobot6 = new RobotBean("Robot6", R.mipmap.ic_robot6 + "", "r6");
-            mRobotBeanList.add(mRobot6);
+            RobotBean robotBean6 = new RobotBean();
+            robotBean6.setName("Robot6");
+            robotBean6.getName();
+            robotBean6.setId(R.mipmap.ic_robot6);
+            robotBean6.getId();
+            data.add(robotBean6);
 
-            RobotBean mRobot7 = new RobotBean("Robot7", R.mipmap.ic_robot7 + "", "r7");
-            mRobotBeanList.add(mRobot7);
+            RobotBean robotBean7 = new RobotBean();
+            robotBean7.setName("Robot7");
+            robotBean7.getName();
+            robotBean7.setId(R.mipmap.ic_robot7);
+            robotBean7.getId();
+            data.add(robotBean7);
 
-            RobotBean mRobot8 = new RobotBean("Robot8", R.mipmap.ic_robot8 + "", "r8");
-            mRobotBeanList.add(mRobot8);
+            RobotBean robotBean8 = new RobotBean();
+            robotBean8.setName("Robot8");
+            robotBean8.getName();
+            robotBean8.setId(R.mipmap.ic_robot8);
+            robotBean8.getId();
+            data.add(robotBean8);
         }
 
     }

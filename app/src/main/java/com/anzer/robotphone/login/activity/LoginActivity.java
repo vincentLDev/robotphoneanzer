@@ -35,7 +35,6 @@ import butterknife.OnClick;
 public class LoginActivity extends BaseActivity implements ILoginView {
     private static final String TAG = "LoginActivity";
 
-
     private RadioGroup mRadioGroup;
 
     @BindView(R.id.etIpDirect)
@@ -71,10 +70,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         setContentView(R.layout.activity_login);
 
         initView();
-
-
     }
-
 
     private void initView() {
         // bind
@@ -151,7 +147,11 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         CommunicateService.getInstance().sendJsonToWebSocket(mGson.toJson(map));
 
         startActivity(new Intent(this, MainActivity.class));
+
     }
+
+
+
 
 
     @Override
