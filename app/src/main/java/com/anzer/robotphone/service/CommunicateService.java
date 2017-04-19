@@ -17,9 +17,10 @@ import java.net.URI;
  * Created by Lenovo on 17/4/15.
  */
 
-public class CommunicateService extends Service {
+public class CommunicateService extends Service { // 继承onBind（），重写onCreate（）、onStartCommand（）、
 
     private static final String TAG = "CommunicateService";
+    public final static String REQUEST_URI = "ws://192.168.16.166:5560";
 
     private static volatile CommunicateService mCommunicateService = null;
 
@@ -32,8 +33,9 @@ public class CommunicateService extends Service {
 
     @Nullable
     @Override
-    public IBinder onBind(Intent intent) {
-        return null;    //  如果不想绑定，返回null
+    public IBinder onBind(Intent intent) {  // Return the communication channel to the service
+
+        return null;    //  如果不想绑定，返回null,  return null if clients can not bind to the service.
     }
 
     @Override
@@ -44,11 +46,58 @@ public class CommunicateService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId) { // 服务一启动就会执行
 
         createWebSocket();
 
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    private void createWebSocket() {
+        Log.e(TAG, "ws is connecting... ");
+
+        try {
+            URI uri = new URI(REQUEST_URI);
+
+            mWebSocketClient = new WebSocketClient(uri) {
+
+                @Override
+                public void onOpen(ServerHandshake handshakedata) {
+
+                    Log.e(TAG, "WebSocketClient onOpen");
+                }
+
+                @Override
+                public void onMessage(String message) {
+                    Log.e(TAG, "WebSocketClient onMessage: " + message);
+                }
+
+                @Override
+                public void onClose(final int code, final String reason, final boolean remote) {
+
+                    Log.e(TAG, "WebSocketClient onClose,  code:" + code + "  reason:" + reason + "  remote:" + remote);
+                }
+
+                @Override
+                public void onError(Exception e) {
+
+                    Log.e(TAG, "WebSocketClient onError: " + e.getMessage());
+                }
+            };
+
+            mWebSocketClient.connect(); // Starts a background thread that attempts and maintains a WebSocket connection to the URI
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendJsonToWebSocket(String json) {      //  Send Json to WebSocket
+
+        if (mWebSocketClient != null && !TextUtils.isEmpty(json)) {
+
+            mWebSocketClient.send(json);    //  Sends <var>json</var> to the connected WebSocket server
+        }
     }
 
     public void showTips() {
@@ -56,57 +105,11 @@ public class CommunicateService extends Service {
         Toast.makeText(getApplicationContext(), "wo wo wo", Toast.LENGTH_SHORT).show();
     }
 
-    public void sendJsonToWebSocket(String json) {      //  Send Json to WebSocket
-
-        if (mWebSocketClient != null && !TextUtils.isEmpty(json)) {
-            mWebSocketClient.send(json);
-        }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
 
     }
-
-    private void createWebSocket() {
-        Log.e(TAG, "ws is connecting... ");
-
-        String reqUri = "ws://192.168.16.166:5560";
-
-        try {
-            URI uri = new URI(reqUri);
-
-            mWebSocketClient = new WebSocketClient(uri) {
-
-                @Override
-                public void onOpen(ServerHandshake handshakedata) {
-
-                    Log.e(TAG, "onOpen");
-                }
-
-                @Override
-                public void onMessage(String message) {
-                    Log.e(TAG, "onMessage: " + message);
-                }
-
-                @Override
-                public void onClose(final int code, final String reason, final boolean remote) {
-
-                    Log.e(TAG, "onClose  code" + code + "  reason:" + reason + "  remote:" + remote);
-                }
-
-                @Override
-                public void onError(Exception e) {
-
-                    Log.e(TAG, "onError: " + e.getMessage());
-                }
-            };
-
-            mWebSocketClient.connect();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
 }
 
 

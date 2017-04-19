@@ -31,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLinearLayoutManager);   // 指定RecyclerView的布局：线性布局LinearLayoutManager
 
         //创建并设置Adapter
-        RobotAdapter mRobotAdapter = new RobotAdapter(data);    // 创建RobotAdapter的实例，并将RobotBean的数据data  传入到FruitAdapter的构造函数中
-        mRecyclerView.setAdapter(mRobotAdapter);                // setAdapter(),完成适配器设置，建立RecyclerView和数据RobotBean之间的关联
+        RobotAdapter mRobotAdapter = new RobotAdapter(data);    // 创建RobotAdapter的实例，建立RecyclerView和数据RobotBean之间的关联
+        mRecyclerView.setAdapter(mRobotAdapter);                // setAdapter(),完成适配器设置
     }
-
 
     private void initRobots() { // Items 初始化
         for (int i = 0; i < 2; i++) {

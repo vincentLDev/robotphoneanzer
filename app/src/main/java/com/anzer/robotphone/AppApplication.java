@@ -16,8 +16,7 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        startService(new Intent(this, CommunicateService.class));
-
+        startService(new Intent(this, CommunicateService.class));   // StartService()和StopService()方法，都定义在Context中（所以在Activity中可以直接调用这两个方法）
 
     }
 

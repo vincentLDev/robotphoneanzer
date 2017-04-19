@@ -1,7 +1,6 @@
 package com.anzer.robotphone.bean;
 
 import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
 
 /**
  * Created by Lenovo on 17/4/14.

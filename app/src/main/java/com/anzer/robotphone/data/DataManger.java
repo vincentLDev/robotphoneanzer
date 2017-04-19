@@ -5,4 +5,6 @@ package com.anzer.robotphone.data;
  */
 
 public class DataManger {
+
+
 }

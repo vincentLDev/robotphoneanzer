@@ -20,9 +20,6 @@ public class RobotAdapter extends RecyclerView.Adapter<RobotAdapter.ViewHolder> 
 
     private List<RobotBean> data;                                   // 数据
 
-    /**
-     * @param data
-     */
     public RobotAdapter(List<RobotBean> data) {                   // 把数据源data 传入到集合中
         this.data = data;                                         // 赋值给全局变量, 后续的操作都在这个数据源的基础上进行
     }
@@ -32,15 +29,16 @@ public class RobotAdapter extends RecyclerView.Adapter<RobotAdapter.ViewHolder> 
      * 并 持有每个Item的所有界面元素，此处是mTextView/mImageView
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {    // 定义持有者的类，内部类ViewHolder，一般只有属性没有方法
+        // 容纳View视图
 
         ImageView mImageView;
         TextView mTextView;
 
         ViewHolder(View itemView) {                             // 构造函数ViewHolder，传入一个View参数 itemView
-                                                                // 该参数通常是 RecyclerView子项的最外层布局，即Items
+            // 该参数通常是 RecyclerView子项的最外层布局，即Items
             super(itemView);
 
-            //  把每一个item的子View控件对象如ImageView、TextView等，findViewById实例化出来并保存到ViewHolder对象中
+            //  把每一个item的子View控件对象如mTextView/mImageView等，findViewById实例化出来，并保存到ViewHolder对象中
             mImageView = (ImageView) itemView.findViewById(R.id.img_robot);
             mTextView = (TextView) itemView.findViewById(R.id.tv_robot);
         }
