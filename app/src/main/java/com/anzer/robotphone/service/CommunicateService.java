@@ -3,6 +3,7 @@ package com.anzer.robotphone.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Process;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,7 +31,6 @@ public class CommunicateService extends Service { // 继承onBind（），重写
 
     public WebSocketClient mWebSocketClient = null;
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {  // Return the communication channel to the service
@@ -43,14 +43,22 @@ public class CommunicateService extends Service { // 继承onBind（），重写
         super.onCreate();
 
         mCommunicateService = this;
+
+//        Log.e(TAG, "onCreate: " + Process.myPid());
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) { // 服务一启动就会执行
+    public int onStartCommand(Intent intent, int flags, int startId) { // 对于Service一启动就会执行的业务，一般都放在onStartCommand()里面
 
         createWebSocket();
 
         return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
     }
 
     private void createWebSocket() {
@@ -64,7 +72,7 @@ public class CommunicateService extends Service { // 继承onBind（），重写
                 @Override
                 public void onOpen(ServerHandshake handshakedata) {
 
-                    Log.e(TAG, "WebSocketClient onOpen");
+                    Log.e(TAG, "WebSocketClient onOpen:");
                 }
 
                 @Override
@@ -75,7 +83,7 @@ public class CommunicateService extends Service { // 继承onBind（），重写
                 @Override
                 public void onClose(final int code, final String reason, final boolean remote) {
 
-                    Log.e(TAG, "WebSocketClient onClose,  code:" + code + "  reason:" + reason + "  remote:" + remote);
+                    Log.e(TAG, "WebSocketClient onClose:  code： " + code + "  reason： " + reason + "  remote： " + remote);
                 }
 
                 @Override
@@ -105,11 +113,7 @@ public class CommunicateService extends Service { // 继承onBind（），重写
         Toast.makeText(getApplicationContext(), "wo wo wo", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
 
-    }
 }
 
 

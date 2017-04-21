@@ -1,20 +1,18 @@
 <resources>
     <string name="app_name">RobotPhone</string>
 
-    <string name="contentDescription">null</string>
+    <string name="activity_login_content_description">null</string>
+    <string name="activity_login_btn_login_direct">Login Direct</string>
+    <string name="activity_login_btn_login_lan">Login LAN</string>
+    <string name="activity_login_btn_login_remote">Login Remote</string>
+    <string name="activity_login_connect_direct">直联模式</string>
+    <string name="activity_login_connect_lan">局域网模式</string>
+    <string name="activity_login_connect_remote">远程模式</string>
+    <string name="activity_login_hint_ip">Please Input IP</string>
+    <string name="activity_login_hint_username">Please Input Username</string>
+    <string name="activity_login_hint_pwd">Please Input Password</string>
 
-    <string name="btn_login_Direct">LoginDirect</string>
-    <string name="btn_login_LAN">LoginLAN</string>
-    <string name="btn_login_Remote">LoginRemote</string>
-
-    <string name="connect_direct">直联模式</string>
-    <string name="connect_LAN">局域网模式</string>
-    <string name="connect_remote">远程模式</string>
-
-    <string name="hint_ip">Please Input IP</string>
-    <string name="hint_username">Please Input Username</string>
-    <string name="hint_pwd">Please Input Password</string>
-    <string name="robot_list">Robot List</string>
+    <string name="activity_main_robot_list">Robot List</string>
 
 
 </resources>

@@ -13,19 +13,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="@dimen/paddingTop"
-        android:text="@string/robot_list"/>
+        android:paddingTop="@dimen/padding_top"
+        android:text="@string/activity_main_robot_list"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/layout_marginBottom"
-        android:layout_marginEnd="@dimen/layout_marginRight"
-        android:layout_marginLeft="@dimen/layout_marginLeft"
-        android:layout_marginRight="@dimen/layout_marginRight"
-        android:layout_marginStart="@dimen/layout_marginLeft"
-        android:paddingTop="@dimen/paddingTop">
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginEnd="@dimen/margin_right"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:layout_marginRight="@dimen/margin_right"
+        android:layout_marginStart="@dimen/margin_left"
+        android:paddingTop="@dimen/padding_top">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"

@@ -2,14 +2,14 @@
        android:shape="rectangle">
 
     <!--填充的颜色-->
-    <solid android:color="@color/gray_radio"/>
+    <solid android:color="@color/gray"/>
 
 
 
     <!--圆角的半径-->
     <corners
-        android:bottomLeftRadius="@dimen/bottomLeftRadius"
-        android:topLeftRadius="@dimen/topLeftRadius"
+        android:bottomRightRadius="@dimen/bottom_right_radius"
+        android:topRightRadius="@dimen/top_right_radius"
         />
 
 

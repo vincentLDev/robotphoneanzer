@@ -8,42 +8,42 @@
     tools:context=".login.activity.LoginActivity">
 
     <ImageView
-        android:id="@+id/image_robot"
+        android:id="@+id/iv_robot"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/layout_marginBottom"
-        android:contentDescription="@string/contentDescription"
-        android:paddingTop="@dimen/paddingBottom"
+        android:layout_marginBottom="@dimen/margin_bottom"
+        android:layout_marginTop="@dimen/margin_top"
+        android:contentDescription="@string/activity_login_content_description"
         android:src="@mipmap/icon_robot"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout_radiobutton"
+        android:id="@+id/llyt_radiogroup"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/image_robot"
+        android:layout_below="@+id/iv_robot"
         android:layout_centerHorizontal="true">
 
         <RadioGroup
-            android:id="@+id/rgChosePattern"
+            android:id="@+id/rg_chose_pattern"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/layout_marginRight"
-            android:layout_marginLeft="@dimen/layout_marginLeft"
-            android:layout_marginRight="@dimen/layout_marginRight"
-            android:layout_marginStart="@dimen/layout_marginLeft"
+            android:layout_marginEnd="@dimen/margin_right"
+            android:layout_marginLeft="@dimen/margin_left"
+            android:layout_marginRight="@dimen/margin_right"
+            android:layout_marginStart="@dimen/margin_left"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rdoDirect"
+                android:id="@+id/rbtn_direct"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_rectangle_leftcorners_selector"
+                android:background="@drawable/rbtn_left_two_corners_s"
                 android:button="@null"
                 android:gravity="center"
-                android:text="@string/connect_direct"
-                android:textSize="@dimen/textSize"/>
+                android:text="@string/activity_login_connect_direct"
+                android:textSize="@dimen/text_size"/>
 
             <View
                 android:layout_width="1dp"
@@ -51,15 +51,15 @@
                 android:background="@color/white_view"/>
 
             <RadioButton
-                android:id="@+id/rdoLAN"
+                android:id="@+id/rbtn_lan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_rectangle_selector"
+                android:background="@drawable/rbtn_rectangle_s"
                 android:button="@null"
                 android:gravity="center"
-                android:text="@string/connect_LAN"
-                android:textSize="@dimen/textSize"/>
+                android:text="@string/activity_login_connect_lan"
+                android:textSize="@dimen/text_size"/>
 
             <View
                 android:layout_width="1dp"
@@ -67,312 +67,318 @@
                 android:background="@color/white_view"/>
 
             <RadioButton
-                android:id="@+id/rdoRemote"
+                android:id="@+id/rbtn_remote"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/btn_rectangle_rightcorners_selector"
+                android:background="@drawable/rbtn_right_two_corners_s"
                 android:button="@null"
                 android:gravity="center"
-                android:text="@string/connect_remote"
-                android:textSize="@dimen/textSize"/>
+                android:text="@string/activity_login_connect_remote"
+                android:textSize="@dimen/text_size"/>
         </RadioGroup>
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/frameLayout_logPattern"
+        android:id="@+id/flyt_log_pattern"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout_radiobutton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/layout_marginTop">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/llyt_radiogroup"
+        android:layout_marginTop="@dimen/margin_top">
 
         <LinearLayout
-            android:id="@+id/linearLayoutDirect"
+            android:id="@+id/llyt_direct"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginLeft="@dimen/layout_marginLeft"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:layout_marginStart="@dimen/layout_marginLeft">
-
-                <ImageView
-                    android:id="@+id/ivIp"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_ip"
-                    android:contentDescription="@string/contentDescription"
-                    android:gravity="center"/>
-
-                <EditText
-                    android:id="@+id/etIpDirect"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginRight"
-                    android:layout_weight="2"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_ip"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:background="@color/gray_radio"/>
-
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_check"
-                    android:contentDescription="@string/contentDescription"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/mBtnLoginDirect"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/layout_marginTop"
-                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-                android:text="@string/btn_login_Remote"
-                android:textSize="@dimen/textSize"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_login_LAN"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginLeft="@dimen/layout_marginLeft"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:layout_marginStart="@dimen/layout_marginLeft"
-                >
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_person"
-                    android:contentDescription="@string/contentDescription"
-                    android:gravity="center"/>
-
-                <EditText
-                    android:id="@+id/etUserLAN"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginLeft"
-                    android:layout_weight="2"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_username"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:background="@color/gray_radio"/>
-
-                <ImageView
-                    android:id="@+id/imageView_Check"
-                    android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_check"
-                    android:contentDescription="@string/contentDescription"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/mBtnLoginLAN"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/layout_marginTop"
-                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-                android:text="@string/btn_login_Direct"
-                android:textSize="@dimen/textSize"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout_Remote"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
             android:orientation="vertical"
             android:visibility="gone"
             >
 
             <LinearLayout
-                android:id="@+id/linearLayout_5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginRight="@dimen/layout_marginRight">
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="@dimen/margin_right"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_right"
+                android:layout_marginStart="@dimen/margin_left">
 
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginLeft"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@mipmap/icon_ip"
-                    android:contentDescription="@string/contentDescription"
+                    android:contentDescription="@string/activity_login_content_description"
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/etIpRemote"
+                    android:id="@+id/et_ip_direct"
                     android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginLeft"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginStart="@dimen/margin_right"
                     android:layout_weight="2"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:hint="@string/hint_ip"/>
+                    android:hint="@string/activity_login_hint_ip"/>
 
                 <View
                     android:layout_width="1dp"
-                    android:layout_height="30dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:background="@color/gray_radio"/>
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:background="@color/gray"/>
 
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
                     android:layout_weight="1"
                     android:background="@mipmap/icon_check"
-                    android:contentDescription="@string/contentDescription"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout_6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/layout_marginRight"
-                android:layout_marginLeft="@dimen/layout_marginLeft"
-                android:layout_marginRight="@dimen/layout_marginRight"
-                android:layout_marginStart="@dimen/layout_marginLeft">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_person"
-                    android:contentDescription="@string/contentDescription"
-                    android:gravity="center"/>
-
-                <EditText
-                    android:id="@+id/etUserRemote"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginLeft"
-                    android:layout_weight="2"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_username"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:background="@color/gray_radio"/>
-
-                <ImageView
-                    android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_check"
-                    android:contentDescription="@string/contentDescription"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout_7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/layout_marginLeft"
-                android:layout_marginRight="@dimen/layout_marginLeft">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_pwd"
-                    android:contentDescription="@string/contentDescription"
-                    android:gravity="center"/>
-
-                <EditText
-                    android:id="@+id/etPwdRemote"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="@dimen/layout_marginLeft"
-                    android:layout_marginStart="@dimen/layout_marginLeft"
-                    android:layout_weight="2"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:hint="@string/hint_pwd"/>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:background="@color/gray_radio"/>
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="10dp"
-                    android:layout_height="40dp"
-                    android:layout_marginEnd="@dimen/layout_marginRight"
-                    android:layout_marginRight="@dimen/layout_marginRight"
-                    android:layout_weight="1"
-                    android:background="@mipmap/icon_check"
-                    android:contentDescription="@string/contentDescription"/>
+                    android:contentDescription="@string/activity_login_content_description"/>
             </LinearLayout>
 
             <Button
-                android:id="@+id/mBtnLoginRemote"
+                android:id="@+id/btn_login_direct"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/layout_marginTop"
-                android:background="@drawable/btn_rectangle_login_fourcorners_selector"
-                android:text="@string/btn_login_LAN"
-                android:textSize="@dimen/textSize"/>
+                android:layout_marginTop="@dimen/margin_top"
+                android:background="@drawable/btn_login_four_corners_s"
+                android:text="@string/activity_login_btn_login_direct"
+                android:textSize="@dimen/text_size"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llyt_lan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/margin_right"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_right"
+                android:layout_marginStart="@dimen/margin_left"
+                >
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_person"
+                    android:contentDescription="@string/activity_login_content_description"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/et_user_lan"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginStart="@dimen/margin_left"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:hint="@string/activity_login_hint_username"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:background="@color/gray"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/activity_login_content_description"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login_lan"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_top"
+                android:background="@drawable/btn_login_four_corners_s"
+                android:text="@string/activity_login_btn_login_lan"
+                android:textSize="@dimen/text_size"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llyt_remote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/margin_right"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_right"
+                android:layout_marginStart="@dimen/margin_left">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_ip"
+                    android:contentDescription="@string/activity_login_content_description"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/et_ip_remote"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginStart="@dimen/margin_left"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:hint="@string/activity_login_hint_ip"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:background="@color/gray"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/activity_login_content_description"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/margin_right"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_right"
+                android:layout_marginStart="@dimen/margin_left">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_person"
+                    android:contentDescription="@string/activity_login_content_description"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/et_user_remote"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginStart="@dimen/margin_left"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:hint="@string/activity_login_hint_username"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:background="@color/gray"/>
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/activity_login_content_description"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/margin_right"
+                android:layout_marginLeft="@dimen/margin_left"
+                android:layout_marginRight="@dimen/margin_right"
+                android:layout_marginStart="@dimen/margin_left">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_pwd"
+                    android:contentDescription="@string/activity_login_content_description"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/et_pwd_remote"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/margin_left"
+                    android:layout_marginStart="@dimen/margin_left"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:hint="@string/activity_login_hint_pwd"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:background="@color/gray"/>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_right"
+                    android:layout_marginRight="@dimen/margin_right"
+                    android:layout_weight="1"
+                    android:background="@mipmap/icon_check"
+                    android:contentDescription="@string/activity_login_content_description"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_login_remote"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_top"
+                android:background="@drawable/btn_login_four_corners_s"
+                android:text="@string/activity_login_btn_login_remote"
+                android:textSize="@dimen/text_size"/>
 
         </LinearLayout>
 

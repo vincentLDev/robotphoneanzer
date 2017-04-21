@@ -25,7 +25,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.CommunicateService"/>
+        <service android:name=".service.CommunicateService">
+
+
+        </service>
 
     </application>
 

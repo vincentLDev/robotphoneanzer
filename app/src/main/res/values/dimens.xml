@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="layout_marginLeft">10dp</dimen>
-    <dimen name="layout_marginRight">10dp</dimen>
-    <dimen name="layout_margin">5dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin_left">10dp</dimen>
+    <dimen name="margin_right">10dp</dimen>
+    <dimen name="margin_bottom">20dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
 
-    <dimen name="paddingBottom">20dp</dimen>
-    <dimen name="paddingTop">10dp</dimen>
+    <dimen name="padding">20dp</dimen>
+    <dimen name="padding_left">10dp</dimen>
+    <dimen name="padding_right">10dp</dimen>
+    <dimen name="padding_bottom">20dp</dimen>
+    <dimen name="padding_top">20dp</dimen>
 
-    <dimen name="layout_marginBottom">20dp</dimen>
-    <dimen name="layout_marginTop">20dp</dimen>
-
-    <dimen name="topLeftRadius">20dp</dimen>
-    <dimen name="bottomLeftRadius">20dp</dimen>
-    <dimen name="topRightRadius">20dp</dimen>
-    <dimen name="bottomRightRadius">20dp</dimen>
     <dimen name="radius">20dp</dimen>
+    <dimen name="top_left_radius">20dp</dimen>
+    <dimen name="bottom_left_radius">20dp</dimen>
+    <dimen name="top_right_radius">20dp</dimen>
+    <dimen name="bottom_right_radius">20dp</dimen>
 
-    <dimen name="textSize">15sp</dimen>
+    <!--<dimen name="width"></dimen>-->
+
+    <!--<dimen name="height"></dimen>-->
+    <!--<dimen name="height_toolbar"></dimen>-->
+    <!--<dimen name="height_menu_image"></dimen>-->
+
+    <!--<dimen name="size"></dimen>-->
+
+    <dimen name="text_size">15sp</dimen>
+    <!--<dimen name="text_size_small">10sp</dimen>-->
+    <!--<dimen name="text_size_medium">15sp</dimen>-->
+    <!--<dimen name="text_size_large">20sp</dimen>-->
+
+
+    <!--<dimen name="elevation"></dimen>-->
+    <!--<dimen name="keyline_listitem"></dimen>-->
 
 </resources>

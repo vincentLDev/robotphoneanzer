@@ -3,11 +3,10 @@
 
     <solid android:color="@color/white_radio"/>
 
-    <!--圆角的半径-->
-    <corners
-        android:bottomLeftRadius="@dimen/bottomLeftRadius"
-        android:topLeftRadius="@dimen/topLeftRadius"
-        />
 
+    <corners
+        android:bottomRightRadius="@dimen/bottom_right_radius"
+        android:topRightRadius="@dimen/top_right_radius"
+        />
 
 </shape>

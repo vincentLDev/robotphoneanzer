@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/btn_rectangle_rightcorners_press"
+    <item android:drawable="@drawable/rbtn_right_two_corners_p"
           android:state_checked="true"></item>
 
-    <item android:drawable="@drawable/btn_rectangle_rightcorners_normal"
+    <item android:drawable="@drawable/rbtn_right_two_corners_n"
           android:state_checked="false"></item>
 
 </selector>

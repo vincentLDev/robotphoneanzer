@@ -8,16 +8,20 @@ import android.support.annotation.DrawableRes;
 
 public class RobotBean {
 
+    private int id;
     private String ip;
     private String name;
     private String passwd;
-    private int id;
+
+    public void setId(@DrawableRes int id) {
+        this.id = id;
+    }
 
     public void setIp(String ip) {
         this.ip = ip;
     }
 
-    public void setName( String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -25,8 +29,8 @@ public class RobotBean {
         this.passwd = passwd;
     }
 
-    public void setId(@DrawableRes int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public String getIp() {
@@ -39,10 +43,6 @@ public class RobotBean {
 
     public String getPasswd() {
         return passwd;
-    }
-
-    public int getId() {
-        return id;
     }
 
 

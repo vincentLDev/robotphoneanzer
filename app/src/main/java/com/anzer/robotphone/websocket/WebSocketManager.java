@@ -5,4 +5,5 @@ package com.anzer.robotphone.websocket;
  */
 
 public class WebSocketManager {
+
 }

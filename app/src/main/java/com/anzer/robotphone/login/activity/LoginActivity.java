@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,30 +37,30 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     private RadioGroup mRadioGroup;
 
-    @BindView(R.id.etIpDirect)
-    EditText mEdtIpDirect;
-    @BindView(R.id.etUserLAN)
-    EditText mEdtUserLAN;
-    @BindView(R.id.etIpRemote)
-    EditText mEdtIpRemote;
-    @BindView(R.id.etPwdRemote)
-    EditText mEdtPwdRemote;
-    @BindView(R.id.etUserRemote)
-    EditText mEdtUserRemote;
+    @BindView(R.id.et_ip_direct)
+    EditText mIpDirect;
+    @BindView(R.id.et_user_lan)
+    EditText mUserLAN;
+    @BindView(R.id.et_ip_remote)
+    EditText mIpRemote;
+    @BindView(R.id.et_pwd_remote)
+    EditText mPwdRemote;
+    @BindView(R.id.et_user_remote)
+    EditText mUserRemote;
 
-    @BindView(R.id.rdoDirect)
-    RadioButton mRbtnDirect;
-    @BindView(R.id.rdoLAN)
-    RadioButton mRbtnLAN;
-    @BindView(R.id.rdoRemote)
-    RadioButton mRbtnRemote;
+    @BindView(R.id.rbtn_direct)
+    RadioButton mDirect;
+    @BindView(R.id.rbtn_lan)
+    RadioButton mLAN;
+    @BindView(R.id.rbtn_remote)
+    RadioButton mRemote;
 
-    @BindView(R.id.linearLayoutDirect)
-    LinearLayout mLinearLayoutDirect;
-    @BindView(R.id.btn_login_LAN)
-    LinearLayout mLinearLayoutLAN;
-    @BindView(R.id.linearLayout_Remote)
-    LinearLayout mLinearLayoutRemote;
+    @BindView(R.id.llyt_direct)
+    LinearLayout mLlytDirect;
+    @BindView(R.id.llyt_lan)
+    LinearLayout mLlytLAN;
+    @BindView(R.id.llyt_remote)
+    LinearLayout mLlytRemote;
 
     ILoginPresenter mILoginPresenter;
 
@@ -71,68 +70,71 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         setContentView(R.layout.activity_login);
 
         initView();
+
+//        Log.e(TAG, "onCreate: " + Process.myPid());
+
     }
 
     private void initView() {
         // bind
-        mRadioGroup = (RadioGroup) findViewById(R.id.rgChosePattern);
+        mRadioGroup = (RadioGroup) findViewById(R.id.rg_chose_pattern);
         ButterKnife.bind(this);
 
         // init
         mILoginPresenter = new LoginPresenterImpl(this);
 
-        // 填充、移除布局  mLinearLayoutDire、mLinearLayoutLAN、mLinearLayoutRemote
+        // 填充、移除布局  mLinearLayoutDirect、mLinearLayoutLAN、mLinearLayoutRemote
         showLayout(true, false, false);
     }
 
-    @OnCheckedChanged(R.id.rdoDirect)
-    public void onRdoDirect() {
+    @OnCheckedChanged(R.id.rbtn_direct)
+    public void onDirect() {
         showLayout(true, false, false);
     }
 
-    @OnCheckedChanged(R.id.rdoLAN)
-    public void onRdoLAN() {
+    @OnCheckedChanged(R.id.rbtn_lan)
+    public void onLAN() {
         showLayout(false, true, false);
     }
 
-    @OnCheckedChanged(R.id.rdoRemote)
-    public void onRdoRemote() {
+    @OnCheckedChanged(R.id.rbtn_remote)
+    public void onRemote() {
         showLayout(false, false, true);
     }
 
     private void showLayout(boolean direct, boolean lan, boolean remote) {
 
-        mRbtnDirect.setChecked(direct);
-        mRbtnLAN.setChecked(lan);
-        mRbtnRemote.setChecked(remote);
+        mDirect.setChecked(direct);
+        mLAN.setChecked(lan);
+        mRemote.setChecked(remote);
 
-        mLinearLayoutDirect.setVisibility(direct ? View.VISIBLE : View.GONE);
-        mLinearLayoutLAN.setVisibility(lan ? View.VISIBLE : View.GONE);
-        mLinearLayoutRemote.setVisibility(remote ? View.VISIBLE : View.GONE);
+        mLlytDirect.setVisibility(direct ? View.VISIBLE : View.GONE);
+        mLlytLAN.setVisibility(lan ? View.VISIBLE : View.GONE);
+        mLlytRemote.setVisibility(remote ? View.VISIBLE : View.GONE);
     }
 
-    @OnClick(R.id.mBtnLoginDirect)
-    public void onBtnLoginDirect() {
+    @OnClick(R.id.btn_login_direct)
+    public void onLoginDirect() {
 
         Toast.makeText(this, "111", Toast.LENGTH_SHORT).show();
 
         CommunicateService.getInstance().showTips();
     }
 
-    @OnClick(R.id.mBtnLoginLAN)
-    public void onBtnLoginLAN() {
+    @OnClick(R.id.btn_login_lan)
+    public void onLoginLAN() {
         Toast.makeText(this, "222", Toast.LENGTH_SHORT).show();
     }
 
     private Gson mGson = new Gson();
 
-    @OnClick(R.id.mBtnLoginRemote)
-    public void onBtnLoginRemote() {
+    @OnClick(R.id.btn_login_remote)
+    public void onLoginRemote() {
 
         Toast.makeText(this, "333", Toast.LENGTH_SHORT).show();
 
-        String name = mEdtUserRemote.getText().toString().trim();
-        String password = mEdtPwdRemote.getText().toString().trim();
+        String name = mUserRemote.getText().toString().trim();
+        String password = mPwdRemote.getText().toString().trim();
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password)) {
             return;
